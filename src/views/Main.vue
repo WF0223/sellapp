@@ -8,12 +8,16 @@
           </div>
           <div class="center">
             <p>
-              <span class="brand"><img src="../assets/imgs/brand@2x.png" alt=""></span>
+              <span class="brand">
+                <img src="../assets/imgs/brand@2x.png" alt />
+              </span>
               <span style="font-weight: bold;font-size:16px">{{seller.name}}</span>
             </p>
             <p>{{seller.description}} / {{seller.deliveryTime}}分钟送达</p>
             <p>
-              <span class="cut"><img src="../assets/imgs/decrease_3@2x.png" alt=""></span>
+              <span class="cut">
+                <img src="../assets/imgs/decrease_3@2x.png" alt />
+              </span>
               {{seller.supports.map((obj)=>{return obj.description})}}
             </p>
           </div>
@@ -23,7 +27,9 @@
         </div>
         <div class="notice">
           <p>
-            <span><img src="../assets/imgs/bulletin@2x.png" alt=""></span>
+            <span>
+              <img src="../assets/imgs/bulletin@2x.png" alt />
+            </span>
             {{seller.bulletin}}
           </p>
         </div>
@@ -35,9 +41,24 @@
       </div>
     </div>
 
-    <div class="content">
+    <div class="Content">
       <!-- 二级路由出口 -->
       <router-view />
+    </div>
+    <!-- 购物车 -->
+    <div class="footer">
+      <div class="left">
+        <div class="shop">
+          <div class="font">
+            <img src="../assets/imgs/shoppingcar.png" alt />
+          </div>
+        </div>
+        <div class="settment">
+          <span>￥0</span>
+          <span>另需配送费￥0元</span>
+        </div>
+      </div>
+      <div class="right">￥起送</div>
     </div>
   </div>
 </template>
@@ -97,13 +118,13 @@ export default {
         white-space: nowrap;
         overflow: hidden;
         .brand {
-          img{
+          img {
             width: 25px;
             height: 15px;
           }
         }
         .cut {
-          img{
+          img {
             width: 15px;
             height: 15px;
           }
@@ -134,10 +155,10 @@ export default {
         overflow: hidden;
         color: #fff;
         span {
-         img{
-           width: 25px;
-           height: 15px;
-         }
+          img {
+            width: 25px;
+            height: 15px;
+          }
         }
       }
     }
@@ -156,8 +177,60 @@ export default {
       }
     }
   }
-  .content {
+  .Content {
     height: 100%;
+  }
+  .footer {
+    width: 100%;
+    height: 50px;
+    background-color: #141c27;
+    position: fixed;
+    bottom: 0px;
+    display: flex;
+    z-index: 50;
+    .left {
+      flex: 3;
+      color: #919095;
+      display: flex;
+
+      .shop {
+        flex: 1;
+        .font {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: #141c27;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          position: absolute;
+          left: 10px;
+          top: -15px;
+          vertical-align: middle;
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+      .settment {
+        flex: 3;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        display: flex;
+        justify-content: space-around;
+        span:nth-child(1) {
+          width: 22%;
+          border-right: 1px solid #919095;
+        }
+      }
+    }
+    .right {
+      flex: 1;
+      line-height: 50px;
+      background-color: #2b343b;
+      color: #9c9d9f;
+    }
   }
 }
 </style>

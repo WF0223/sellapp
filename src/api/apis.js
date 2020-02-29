@@ -12,3 +12,6 @@ export function getSeller(){
 export function getgoods(){
     return req.get('/api/goods')
 }
+export function getratings(){
+    return req.get('/api/ratings')
+}
